@@ -1,0 +1,2 @@
+
+List of 140 different colors which we can use them by their name while using the color property in CSS. http://www.crockford.com/wrrrld/color.html
