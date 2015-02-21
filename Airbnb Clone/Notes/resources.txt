@@ -1,2 +1,4 @@
-
+List of Resources:
 List of 140 different colors which we can use them by their name while using the color property in CSS. http://www.crockford.com/wrrrld/color.html
+
+Google Fonts - Collection of over 600 great fonts! http://www.google.com/fonts
