@@ -15,7 +15,7 @@ var main = function(){
                 var nextArticle = currentArticle.next();
                 currentArticle.removeClass('current');
                 nextArticle.addClass('current');
-                }
+            }
        
         });
 };
