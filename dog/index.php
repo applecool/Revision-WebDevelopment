@@ -6,7 +6,10 @@
 	</head>
 	<body>
       <p>
+          
         <?php
+            
+                //simple example code in object oriented PHP
             class Dog{
                 public $numLegs = 4;
                 public $name;
