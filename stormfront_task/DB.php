@@ -1,17 +1,45 @@
 <?php
+/*
+* Mysql database class - only one connection alowed
+*/
+class DB {
+	private $_connection;
+	private static $_instance; //The single instance
+	private $_host = "localhost";
+	private $_username = "root";
+	private $_password = "";
+	private $_database = "stormfront";
 
-$host_name = "localhost"; 
-$db_name = "stormfront"; 
-$username = "root"; 
-$password = "";
+	/*
+	Get an instance of the Database
+	@return Instance
+	*/
+	public static function getInstance() {
+		if(!self::$_instance) { // If no instance then make one
+			self::$_instance = new self();
+		}
+		return self::$_instance;
+	}
 
-try{
-    $connection = new PDO("mysql:host={$host_name};dbname={$db_name}",$username, $password);
-    echo "Connection successful";
+	// Constructor
+	private function __construct() {
+		$this->_connection = new mysqli($this->_host, $this->_username, 
+			$this->_password, $this->_database);
+	
+		// Error handling
+		if(mysqli_connect_error()) {
+			trigger_error("Failed to connect to MySQL database: " . mysql_connect_error(),
+				 E_USER_ERROR);
+		}
+	}
+
+	// Magic method clone is empty to prevent duplication of connection
+	private function __clone() { }
+
+	// Get mysqli connection
+	public function getConnection() {
+		return $this->_connection;
+	}
+
 }
-//handling connection error
-catch(PDOException $exception){
-    echo "Error with your connection: " .$exception->getMessage();
-}
-
 ?>
