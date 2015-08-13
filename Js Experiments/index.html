@@ -1,0 +1,36 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Voice Exp</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.0.0/annyang.min.js"></script>
+
+<script>
+use "strict";
+//check if the annyang got started successfully.
+if(annyang){
+
+var username = function(){
+  $('#username').focus();
+};
+
+var commands = {
+  'username': username
+  };
+  annyang.debug();
+  annyang.addCommands(commands);
+  annyang.setLanguage();
+  annyang.start();
+} else{
+  alert("Annyang is not working");
+}
+</script>
+
+</head>
+
+<body>
+  <h3>Voice Test Round 1</h3>
+
+  <input type="text" id="username" placeholder="enter the username">
+</body>
+
+</html>
