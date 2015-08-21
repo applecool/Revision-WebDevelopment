@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Dynamic Addition</title>
-</head>
-<body>
-<div id="blankDiv"></div>
 
-       <table id="gridInAnswers">
-           <tr>
-               <th>
-                   Items
-               </th>
-               <th>
-                   Quantity
-               </th>
-           </tr>
-           <tr>
-               <td>
-                   <input type="text" name="unlabelled-items" id="unlabelled-items" class="grdAns" placeholder="Enter code or description" />
-               </td>
-               <td>
-                   <input type="text" name="quantity" id="quantity" placeholder="Enter quantity" class="grdAns" />
-               </td>
-               <td>
-                   <a href="#" class="add">Add</a>
-               </td>
-           </tr>
-           <tr>
-               <input type='button' value='Get TextBox Value' id='getButtonValue'>
-           </tr>
-       </table>
+<head>
+  <title>Dynamic Addition</title>
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+  <!--<script src="scripts/dynamic.js"></script> -->
+</head>
+
+<body>
+  <div id="blankDiv"></div>
+
+  <table id="gridInAnswers">
+    <tr>
+      <th>
+        Items
+      </th>
+      <th>
+        Quantity
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <input type="text" name="unlabelled-items" id="unlabelled-items" class="grdAns" placeholder="Enter code or description" />
+      </td>
+      <td>
+        <input type="text" name="quantity" id="quantity" placeholder="Enter quantity" class="grdAns" />
+      </td>
+      <td>
+        <a href="#" class="add" id="add-btn">Add</a>
+      </td>
+    </tr>
+    <tr>
+      <input type='button' value='Get TextBox Value' id='getButtonValue'>
+    </tr>
+  </table>
+
+
 </body>
+<script>
+  $("#add-btn").click(function() {
+    $("#unlabelled-items").val();
+    $("#blankDiv").append($("#unlabelled-items").val());
+    console.log($("#unlabelled-items").val());
+    $("#quantity").val();
+    console.log($("#quantity").val());
+  });
+</script>
+
 </html>
